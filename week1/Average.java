@@ -10,5 +10,6 @@ public class Average {
         Float sum = num1 + num2;
         Float result = sum / 2;
         System.out.print("The average of the two numbers is " + result);
+        ave.close();
     }
 }
