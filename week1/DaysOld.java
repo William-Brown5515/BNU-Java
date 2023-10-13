@@ -12,8 +12,8 @@ public class DaysOld {
         Integer birthMonth = dob.nextInt();
         System.out.print("Please enter the year of your date of birth   ");
         Integer birthYear = dob.nextInt();
-        Calendar now = Calendar.getInstance();
 
+        Calendar now = Calendar.getInstance();
         Integer year = now.get(Calendar.YEAR);
         Integer month = now.get(Calendar.MONTH);
         Integer day = now.get(Calendar.DATE);
