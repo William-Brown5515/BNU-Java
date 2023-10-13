@@ -9,8 +9,5 @@ public class Main {
         System.out.print("Hello ");
         System.out.println(name);
         myObj.close();
-        Student student = new Student();
-        student.getClass();
-        System.out.print(student);
     }
 }
