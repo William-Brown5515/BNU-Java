@@ -7,7 +7,7 @@ public class Reverse {
         Integer num1 = numbers.nextInt();
         System.out.print("Please enter another integer ");
         Integer num2 = numbers.nextInt();
-        System.out.print(num2);
+        System.out.println(num2);
         System.out.print(num1);
         numbers.close();
     }    
