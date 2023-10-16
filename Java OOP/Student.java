@@ -11,11 +11,12 @@ public class Student {
     public static void main(String[] args) {
         Student student = new Student(22233575, "Will");
         student.enroll(8217862, "Science");
-        
+
         System.out.println(student.Name);
         System.out.println(student.ID);
         System.out.println(student.Course.CourseName);
         System.out.println(student.Course.Code);
+        System.out.println(student);
     }
 
     public void enroll(Integer Code, String CourseName) {
@@ -29,5 +30,12 @@ public class Student {
     
     public Integer getID() {
         return ID;
+    }
+
+    public void seeDetails() { 
+        System.out.println(this.Name);
+        System.out.println(this.ID);
+        System.out.println(this.Course.CourseName);
+        System.out.println(this.Course.Code);
     }
 }
