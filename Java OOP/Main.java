@@ -3,5 +3,7 @@ public class Main {
         Student a = new Student(22233575, "Will");
         a.enroll(62455, "DTS Degree");
         a.seeDetails();
+        Course b = new Course(9876, "All");
+        b.seeDetails();
     }
 }
