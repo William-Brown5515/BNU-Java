@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 public class Student {
     Integer ID;
     String Name;
     Course Course;
+    ArrayList<Integer> Marks;
 
     public Student (Integer ID, String Name) {
         this.ID = ID;
@@ -22,6 +25,14 @@ public class Student {
     public void enroll(Integer Code, String CourseName) {
         Course course = new Course(Code, CourseName);
         this.Course = course;
+    }
+
+    public void giveMarks() {
+        ArrayList<Integer> Marks = new ArrayList<Integer>();
+        Marks.add(89);
+        Marks.add(34);
+        Marks.add(56);
+        Marks.add(69);
     }
 
     public String getName() {
