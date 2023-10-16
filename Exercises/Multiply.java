@@ -18,6 +18,7 @@ public class Multiply {
             carry_on = number.nextBoolean();
         }
         while (carry_on = true);
+        System.out.println(carry_on);
         number.close();
     }
 }

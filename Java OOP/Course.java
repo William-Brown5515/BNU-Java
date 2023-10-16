@@ -23,9 +23,9 @@ public class Course {
     }
 
     public void seeDetails() {
-        System.out.println(this.Modules.get(0));
-        System.out.println(this.Modules.get(1));
-        System.out.println(this.Modules.get(2));
-        System.out.println(this.Modules.get(3));
+        for (int i = 0; i < 4; i++) {
+        System.out.println(this.Modules.get(i).Name);
+        System.out.println(this.Modules.get(i).Code);
+        }
     }
 }
