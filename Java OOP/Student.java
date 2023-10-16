@@ -11,6 +11,7 @@ public class Student {
     public static void main(String[] args) {
         Student student = new Student(22233575, "Will");
         student.enroll(8217862, "Science");
+        
         System.out.println(student.Name);
         System.out.println(student.ID);
         System.out.println(student.Course.CourseName);
