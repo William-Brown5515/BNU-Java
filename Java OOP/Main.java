@@ -5,5 +5,7 @@ public class Main {
         a.seeDetails();
         Course b = new Course(9876, "All");
         b.seeDetails();
+        a.giveMarks();
+        System.out.println(a.Marks.get(2));
     }
 }

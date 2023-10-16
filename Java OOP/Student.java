@@ -14,7 +14,6 @@ public class Student {
     public static void main(String[] args) {
         Student student = new Student(22233575, "Will");
         student.enroll(8217862, "Science");
-
         System.out.println(student.Name);
         System.out.println(student.ID);
         System.out.println(student.Course.CourseName);
@@ -28,11 +27,12 @@ public class Student {
     }
 
     public void giveMarks() {
-        ArrayList<Integer> Marks = new ArrayList<Integer>();
-        Marks.add(89);
-        Marks.add(34);
-        Marks.add(56);
-        Marks.add(69);
+        ArrayList<Integer> examMarks = new ArrayList<Integer>();
+        examMarks.add(89);
+        examMarks.add(34);
+        examMarks.add(56);
+        examMarks.add(69);
+        this.Marks = examMarks;
     }
 
     public String getName() {
