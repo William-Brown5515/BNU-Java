@@ -6,6 +6,6 @@ public class Main {
         Course b = new Course(9876, "All");
         b.seeDetails();
         a.giveMarks();
-        System.out.println(a.Marks.get(2));
+        a.markModule();
     }
 }

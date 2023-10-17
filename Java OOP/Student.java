@@ -35,6 +35,18 @@ public class Student {
         this.Marks = examMarks;
     }
 
+    public void markModule() {
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("The marks for the module ");
+            System.out.print(this.Course.Modules.get(i).Name);
+            System.out.print(" with the module code ");
+            System.out.print((this.Course.Modules.get(i)).Name);
+            System.out.print(" was ");
+            System.out.println(this.Marks.get(i));
+        }
+    }
+
     public String getName() {
         return Name;
     }
