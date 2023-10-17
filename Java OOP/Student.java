@@ -6,6 +6,7 @@ public class Student {
     String Name;
     Course Course;
     ArrayList<Integer> Marks;
+    ArrayList<String> grades;
 
     public Student (Integer ID, String Name) {
         this.ID = ID;
@@ -30,11 +31,50 @@ public class Student {
     public void giveMarks() {
         ArrayList<Integer> examMarks = new ArrayList<Integer>();
         Random random = new Random();
-        examMarks.add(random.nextInt(100));
-        examMarks.add(random.nextInt(100));
-        examMarks.add(random.nextInt(100));
-        examMarks.add(random.nextInt(100));
+        for (int a = 0; a < 4; a++) {
+            examMarks.add(random.nextInt(100));
+        }
         this.Marks = examMarks;
+    }
+
+    public void giveGrades() {
+        ArrayList<String> grades = new ArrayList<String>();
+        for (int b = 0; b < 4; b++) {
+            if (this.Marks.get(b) > 89) {
+                grades.add("A*");
+            }
+            else if (this.Marks.get(b) > 79) {
+                grades.add("A");
+            }
+            else if (this.Marks.get(b) > 69) {
+                grades.add("B");
+            }
+            else if (this.Marks.get(b) > 59) {
+                grades.add("C");
+            }
+            else if (this.Marks.get(b) > 49) {
+                grades.add("D");
+            }
+            else if (this.Marks.get(b) > 39) {
+                grades.add("E");
+            }
+            else if (this.Marks.get(b) > 29) {
+                grades.add("F");
+            }
+            else {
+                grades.add("U");
+            }
+        }
+        this.grades = grades;
+    }
+
+    public void viewGrades() {
+        for (int c = 0; c < 4; c++) {
+            System.out.print("The grade for module ");
+            System.out.print(this.Course.Modules.get(c).Name);
+            System.out.print(" was ");
+            System.out.println(this.grades.get(c));
+        }
     }
 
     public void markModule() {

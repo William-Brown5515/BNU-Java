@@ -7,5 +7,7 @@ public class Main {
         b.seeDetails();
         a.giveMarks();
         a.markModule();
+        a.giveGrades();
+        a.viewGrades();
     }
 }
