@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Student {
     Integer ID;
@@ -28,10 +29,11 @@ public class Student {
 
     public void giveMarks() {
         ArrayList<Integer> examMarks = new ArrayList<Integer>();
-        examMarks.add(89);
-        examMarks.add(34);
-        examMarks.add(56);
-        examMarks.add(69);
+        Random random = new Random();
+        examMarks.add(random.nextInt(100));
+        examMarks.add(random.nextInt(100));
+        examMarks.add(random.nextInt(100));
+        examMarks.add(random.nextInt(100));
         this.Marks = examMarks;
     }
 
