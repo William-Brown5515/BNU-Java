@@ -21,16 +21,16 @@ public class SongList {
         songs.add(new Song("As it was", "Harry Styles" , 274700000));
     }
     
-    public void createSong(String title, String name, Integer count) {
-        Scanner songCreate = new Scanner(System.in);
-        System.out.print("What is the name of the song?     ");
-        String songName = songCreate.nextLine();
-        System.out.print("What is the name of the artist(s)?     ");
-        String songArtist = songCreate.nextLine();
-        System.out.print("What is the play count of the song?     ");
-        Integer songCount = songCreate.nextInt();
-        songs.add(new Song(songName, songArtist, songCount));
-        songCreate.close();
+    public void createSong() {
+        Scanner optionsA = new Scanner(System.in);
+        System.out.print("What is the name of the song to add?     ");
+        String songName = optionsA.nextLine();
+        System.out.print("Who is/are the artist(s)?     ");
+        String songArtists = optionsA.nextLine();
+        System.out.print("What is the current play count of the song?     ");
+        Integer songPlays = optionsA.nextInt();
+        songs.add(new Song(songName, songArtists, songPlays));
+        optionsA.close();
     }
     
     public void printSongs() {
@@ -54,9 +54,13 @@ public class SongList {
         Song temp = songs.get(songToRemove);
         songs.remove(temp);
         rmSong.close();
+        this.printSongs();
     }
 
-    public void songsAbove(Integer plays) {
+    public void songsAbove() {
+        System.out.print("Enter the amount of plays which is the minimum you would like to display.     ");
+        Scanner playC= new Scanner(System.in);
+        Integer plays = playC.nextInt();
         for (Integer a = 0; a < (songs.size()); a++) {
             if (songs.get(a).playCount > plays) {
             System.out.print(songs.get(a).songTitle);
@@ -64,6 +68,7 @@ public class SongList {
             System.out.print(songs.get(a).artistName);         
             System.out.print("     ");
             System.out.println(songs.get(a).playCount);
+        playC.close();
             }
         }
     }

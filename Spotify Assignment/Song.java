@@ -7,7 +7,5 @@ public class Song {
         this.songTitle = title;
         this.artistName = name;
         this.playCount = count;
-    }
-
-    
+    }   
 }
