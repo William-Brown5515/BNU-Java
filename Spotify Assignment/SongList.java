@@ -1,6 +1,5 @@
 // Import relevant libraries
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class SongList {
     // Create an ArrayList of songs
@@ -8,6 +7,7 @@ public class SongList {
 
     public static void main(String[] args) {
     }
+
     // Create a series of songs to begin the songList
     public SongList() {
         songs.add(new Song("Blinding Lights", "The Weeknd",385100000));
@@ -22,19 +22,9 @@ public class SongList {
         songs.add(new Song("As it was", "Harry Styles" , 274700000));
     }
     
-    public void createSong() {
-        // Create instance of Scanner class 
-        Scanner options = new Scanner(System.in);
-        // Series of outputs and inputs to retrive information needed to create song
-        System.out.print("What is the name of the song to add?     ");
-        String songName = options.nextLine();
-        System.out.print("Who is/are the artist(s)?     ");
-        String songArtists = options.nextLine();
-        System.out.print("What is the current play count of the song?     ");
-        Integer songPlays = options.nextInt();
+    public void createSong(String songName, String songArtists, Integer songPlays) {
         // Create the song and add it to the ArrayList
         songs.add(new Song(songName, songArtists, songPlays));
-        options.close();
     }
     
     public void printSongs() {
@@ -51,34 +41,23 @@ public class SongList {
         }
     }
 
-    public void removeSong() {
-        this.printSongs();
-        Scanner rmSong = new Scanner(System.in);
-        // Request an integer for the song the user would like to delete
-        System.out.print("Please enter the song number of the song you would like to delete");
-        Integer songToRemove = rmSong.nextInt();
+    public void removeSong(Integer songToRemove) {
         // Uses temporary variable to remove song from songList
-        System.out.println(songToRemove);
         Song temp = songs.get(songToRemove);
         songs.remove(temp);
-        rmSong.close();
-        this.printSongs();
     }
 
-    public void songsAbove() {
-        // Request an integer for the minimum amount of plays
-        System.out.print("Enter the amount of plays which is the minimum you would like to display.     ");
-        Scanner playC= new Scanner(System.in);
-        Integer plays = playC.nextInt();
+    public void songsAbove(Integer plays) {
         // Uses for loop to cycle through songs
         for (Integer a = 0; a < (songs.size()); a++) {
+            // Checks if play count of the song is above minimum that user entered
             if (songs.get(a).playCount > plays) {
+                // Output all attributes for songs that meet requirements
                 System.out.print(songs.get(a).songTitle);
                 System.out.print("     ");
                 System.out.print(songs.get(a).artistName);         
                 System.out.print("     ");
                 System.out.println(songs.get(a).playCount);
-        playC.close();
             }
         }
     }

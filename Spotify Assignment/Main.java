@@ -10,7 +10,7 @@ public class Main {
         // Inititialise variable for user to choose options
         int songOption = 0;    
         // Create while loop 
-        while (true) {
+        do {
             // Series of outputs to give options to the user
             System.out.println("Please read the following options and enter the number.");
             System.out.println("Press 0 to add a song.");
@@ -23,23 +23,41 @@ public class Main {
             songOption = options.nextInt();
             // Series of if loops to complete methods as requested by user
             if (songOption == 0) {
-                listOfSongs.createSong();
+                // Series of outputs and inputs to retrive information needed to create song
+                System.out.print("What is the name of the song to add?     ");
+                System.out.print("this line works!");
+                String songName = options.nextLine();
+                System.out.print("So does this one!");
+                System.out.print("Who is/are the artist(s)?     ");
+                String songArtists = options.nextLine();
+                System.out.print("What is the current play count of the song?     ");
+                Integer songPlays = options.nextInt();
+                listOfSongs.createSong(songName, songArtists, songPlays);
             }
             else if (songOption == 1) {
-                listOfSongs.removeSong();
+                listOfSongs.printSongs();
+                // Request an integer for the song the user would like to delete
+                System.out.print("Please enter the song number of the song you would like to delete");
+                Integer songToRemove = options.nextInt();
+                listOfSongs.removeSong(songToRemove);
+
             }
             else if (songOption == 2) {
                 listOfSongs.printSongs();
             }
             else if (songOption == 3) {
-                listOfSongs.songsAbove();
+                // Request an integer for the minimum amount of plays
+                System.out.print("Enter the amount of plays which is the minimum you would like to display.     ");
+                Integer plays = options.nextInt();
+                listOfSongs.songsAbove(plays);               
             }
             // If input doesn't match any of the above, end while loop
             else {
                 break;
             }
         }
-        // Closing scanner object to avoid annoying error message
+        while(true);
+    // Closing scanner object to avoid annoying error message
         options.close();
-    }
+    }   
 }
