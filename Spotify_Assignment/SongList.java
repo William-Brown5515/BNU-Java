@@ -25,6 +25,12 @@ public class SongList {
     public void createSong(String songName, String songArtists, Integer songPlays) {
         // Create the song and add it to the ArrayList
         songs.add(new Song(songName, songArtists, songPlays));
+        System.out.print("The added song's name is ");
+        System.out.print(songName);
+        System.out.print(", the song's artist(s) is/are ");
+        System.out.print(songArtists);
+        System.out.print(", and the current play count of the song is ");
+        System.out.println(songPlays);
     }
     
     public void printSongs() {
@@ -45,6 +51,8 @@ public class SongList {
         // Uses temporary variable to remove song from songList
         Song temp = songs.get(songToRemove);
         songs.remove(temp);
+        System.out.print("The song you have removed is ");
+        System.out.println(songs.get(songToRemove).songTitle);
     }
 
     public void songsAbove(Integer plays) {
