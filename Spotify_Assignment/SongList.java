@@ -49,13 +49,16 @@ public class SongList {
 
     public void removeSong(Integer songToRemove) {
         // Uses temporary variable to remove song from songList
-        Song temp = songs.get(songToRemove);
+        Song temp = songs.get(songToRemove - 1);
         songs.remove(temp);
+
+        // Outputs the song that has been removed for the user's input
         System.out.print("The song you have removed is ");
-        System.out.println(songs.get(songToRemove).songTitle);
+        System.out.println(songs.get(songToRemove - 1).songTitle);
     }
 
     public void songsAbove(Integer plays) {
+        Integer numberSongs = 0;
         // Uses for loop to cycle through songs
         for (Integer a = 0; a < (songs.size()); a++) {
             // Checks if play count of the song is above minimum that user entered
@@ -66,7 +69,13 @@ public class SongList {
                 System.out.print(songs.get(a).artistName);         
                 System.out.print("     ");
                 System.out.println(songs.get(a).playCount);
+                numberSongs += 1;
             }
+        }
+        // Checks if there are no songs above the play count, if so displays a message
+        if (numberSongs == 0) {
+            System.out.print("I'm afraid there are no songs with a play count of over ");
+            System.out.println(plays);
         }
     }
 }
