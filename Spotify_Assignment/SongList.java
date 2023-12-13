@@ -35,15 +35,20 @@ public class SongList {
     
     public void printSongs() {
         // Uses for loop to cycle through items in ArrayList
-        for (int i = 0; i < (songs.size()); i++) {
-            // Outputs all aspects of each song
-            System.out.print(songs.get(i).songTitle);
-            System.out.print("     ");
-            System.out.print(songs.get(i).artistName);         
-            System.out.print("     ");
-            System.out.print(songs.get(i).playCount);
-            System.out.print("     Song number...  ");
-            System.out.println(i);
+        if (songs.size() != 0) {
+            for (int i = 0; i < (songs.size()); i++) {
+                // Outputs all aspects of each song
+                System.out.print(songs.get(i).songTitle);
+                System.out.print("     ");
+                System.out.print(songs.get(i).artistName);         
+                System.out.print("     ");
+                System.out.print(songs.get(i).playCount);
+                System.out.print("     Song number...  ");
+                System.out.println(i);
+            }
+        }
+        else {
+            System.out.println("Unfortunately, there are currently no songs");
         }
     }
 
