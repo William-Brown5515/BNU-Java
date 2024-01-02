@@ -5,9 +5,6 @@ public class SongList {
     // Create an ArrayList of songs
     ArrayList<Song> songs = new ArrayList<Song>();
 
-    public static void main(String[] args) {
-    }
-
     // Create a series of songs to begin the songList
     public SongList() {
         songs.add(new Song("Blinding Lights", "The Weeknd",385100000));
@@ -44,22 +41,24 @@ public class SongList {
                 System.out.print("     ");
                 System.out.print(songs.get(i).playCount);
                 System.out.print("     Song number...  ");
-                System.out.println(i);
+                System.out.println(i + 1);
             }
         }
+
         else {
             System.out.println("Unfortunately, there are currently no songs");
         }
     }
 
     public void removeSong(Integer songToRemove) {
+        // Outputs the song that has been removed for the user's input
+        System.out.print("The song you have removed is ");
+        System.out.println(songs.get(songToRemove - 1).songTitle);
+
         // Uses temporary variable to remove song from songList
         Song temp = songs.get(songToRemove - 1);
         songs.remove(temp);
 
-        // Outputs the song that has been removed for the user's input
-        System.out.print("The song you have removed is ");
-        System.out.println(songs.get(songToRemove - 1).songTitle);
     }
 
     public void songsAbove(Integer plays) {
@@ -74,9 +73,10 @@ public class SongList {
                 System.out.print(songs.get(a).artistName);         
                 System.out.print("     ");
                 System.out.println(songs.get(a).playCount);
-                numberSongs += 1;
+                numberSongs ++;
             }
         }
+
         // Checks if there are no songs above the play count, if so displays a message
         if (numberSongs == 0) {
             System.out.print("I'm afraid there are no songs with a play count of over ");

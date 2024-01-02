@@ -25,7 +25,8 @@ public class Main {
             System.out.println("Press 1 to remove a song.");
             System.out.println("Press 2 to print a list of all the songs.");
             System.out.println("Press 3 to print a list of songs over a certain amount of plays.");
-            System.out.println("Press 4 to exit.");
+            System.out.println("Press 4 to reset the list of songs to it's original state");
+            System.out.println("Press 5 to exit.");
             System.out.print("Which option would you like to pick?     ");
 
             // Initiate error variable
@@ -41,12 +42,14 @@ public class Main {
                     songOption = options.nextInt();
 
                     // If the number isn't in the range that it has offered, throw an exception
-                    if (songOption <= 0) {
+                    if (songOption < 0) {
                         throw new IndexOutOfBoundsException();
                     }
+
                     else if (songOption > 5) {
                         throw new IndexOutOfBoundsException();
                     }
+                    
                 } catch (InputMismatchException e) {
                     // If an integer isn't entered, show relevant error message, and ask for another input
                     errorOptions = true;
@@ -89,6 +92,7 @@ public class Main {
                         errorInt = true;
                         options.next();
                     }
+
                 } while (errorInt != false);
 
                 // Use the createSong method to create the song 
@@ -102,6 +106,7 @@ public class Main {
                     System.out.println("Apologies, however there are no songs in the list");
 
                 }
+
                 else {
                     // Print songs to enable user to choose which song to delete
                     listOfSongs.printSongs();
@@ -169,16 +174,22 @@ public class Main {
                 } while (errorInt2 != false);
                 listOfSongs.songsAbove(plays);
             }
+
             if (songOption == 4) {
+                listOfSongs = new SongList();
+            }
+
+            if (songOption == 5) {
                 // Change variable end to true as that is what the user has requested
                 end = true;
             }
+
             if (end != false) {
                 break;
             }
-        } 
-        while(end != true);
-    // Closing scanner object to avoid irritating error message
+
+        } while(end != true);
+        // Closing scanner object to avoid irritating error message
         options.close();
     }
 }
