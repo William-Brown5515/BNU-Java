@@ -4,11 +4,21 @@ import java.util.Scanner;
 
 public class Main {
 
+    // Create constants for the colours used for the text
+    public static final String colour_reset = "\u001B[0m";
+    public static final String colour_red = "\u001B[31m";
+    public static final String colour_cyan = "\u001B[36m";
+    public static final String colour_green = "\u001B[32m";
+    public static final String colour_yellow = "\u001B[33m";
+
     // Create main method
     public static void main(String[] Args) {
 
         // Create instance of SongList class
         SongList listOfSongs = new SongList();
+
+        // Add a space before the software begins
+        System.out.println(colour_reset);
 
         // Creates instance of Scanner class to enable inputs
         Scanner options = new Scanner(System.in);
@@ -19,15 +29,16 @@ public class Main {
 
         // Start do while loop, which ends when user chooses to end program
         do {
+
             // Series of outputs to display options to the user
-            System.out.println("Please read the following options and enter the number.");
+            System.out.println(colour_yellow + "Please read the following options and enter the number.");
             System.out.println("Press 0 to add a song.");
             System.out.println("Press 1 to remove a song.");
             System.out.println("Press 2 to print a list of all the songs.");
             System.out.println("Press 3 to print a list of songs over a certain amount of plays.");
-            System.out.println("Press 4 to reset the list of songs to it's original state");
+            System.out.println("Press 4 to reset the list of songs to the original state.");
             System.out.println("Press 5 to exit.");
-            System.out.print("Which option would you like to pick?     ");
+            System.out.print("Which option would you like to pick?     " + colour_reset);
 
             // Initiate error variable
             Boolean errorOptions;
@@ -53,13 +64,15 @@ public class Main {
                 } catch (InputMismatchException e) {
                     // If an integer isn't entered, show relevant error message, and ask for another input
                     errorOptions = true;
-                    System.out.print("Error, please enter an integer   ");
+                    System.out.print(colour_red);
+                    System.out.print("Error, please enter an integer   " + colour_reset);
                     options.next();
 
                 } catch (IndexOutOfBoundsException f) {
                     // Catch exception that was thrown as user selected integer that was not in the range, and output error
                     errorOptions = true;
-                    System.out.print("Error, please enter an integer between 0 and 4     ");
+                    System.out.print(colour_red);
+                    System.out.print("Error, please enter an integer between 0 and 4     " + colour_reset);
                 }
 
             } while (errorOptions != false);
@@ -68,15 +81,16 @@ public class Main {
             if (songOption == 0) {
 
                 // Series of outputs and inputs to retrive information needed to create song
-                System.out.print("What is the name of the song to add?     ");
+                System.out.println(colour_cyan);
+                System.out.print("What is the name of the song to add?     " + colour_reset);
                 options.nextLine();
                 String songName = options.nextLine();
-                System.out.print("Who is/are the artist(s)?     ");
+                System.out.print(colour_cyan + "Who is/are the artist(s)?     " + colour_reset);
                 String songArtists = options.nextLine();
 
                 // Prepare for try-catch function by displaying messages and initialising variables
                 int songPlays = 0;
-                System.out.print("What is the current play count of the song?     ");
+                System.out.print(colour_cyan + "What is the current play count of the song?     " + colour_reset);
                 Boolean errorInt;
 
                 // Use a do/while loop and a try/catch functions to ensure an integer is entered
@@ -85,10 +99,12 @@ public class Main {
                     try {
                         errorInt = false;
                         songPlays = options.nextInt();
+                        System.out.print(colour_reset);
 
                     } catch (Exception e) {
                         // Avoid user putting in a data type that isn't a variable
-                        System.out.print("Error, please enter an integer     ");
+                        System.out.print(colour_red);
+                        System.out.print("Error, please enter an integer     " + colour_reset);
                         errorInt = true;
                         options.next();
                     }
@@ -103,8 +119,9 @@ public class Main {
 
                 // Check if list of songs is empty, if it is then don't remove song
                 if (listOfSongs.songs.size() == 0) {
+                    System.out.println(colour_red);
                     System.out.println("Apologies, however there are no songs in the list");
-
+                    System.out.println(colour_reset);
                 }
 
                 else {
@@ -112,7 +129,7 @@ public class Main {
                     listOfSongs.printSongs();
 
                     // Request an integer for the song the user would like to delete, initialise variable for try/catch
-                    System.out.print("Please enter the song number of the song you would like to delete     ");
+                    System.out.print(colour_cyan + "Please enter the song number of the song you would like to delete     " + colour_reset);
                     Boolean errorRemove;
                     int songToRemove = 0;
 
@@ -128,15 +145,17 @@ public class Main {
                             }
                         } catch (InputMismatchException e) {
                             // If user did not enter integer, show error message and try again
-                            System.out.print("Error, please enter an integer     ");
+                            System.out.print(colour_red);
+                            System.out.print("Error, please enter an integer     " + colour_reset);
                             errorRemove = true;
                             options.next();
 
                         } catch (IndexOutOfBoundsException f) {
                             // If index is out of list range, show error message and try again
+                            System.out.print(colour_red);
                             System.out.print("Error, please enter an integer between 0 and ");
                             System.out.print(listOfSongs.songs.size() - 1);
-                            System.out.print("     ");
+                            System.out.print("     " + colour_reset);
                             errorRemove = true;
 
                         }
@@ -156,7 +175,8 @@ public class Main {
                 // Request an integer for the minimum amount of plays, initialise variables for try/catch
                 Boolean errorInt2 = false;
                 int plays = 0;
-                System.out.print("Enter the amount of plays which is the minimum you would like to display.     ");
+                System.out.println(colour_cyan);
+                System.out.print("Enter the amount of plays which is the minimum you would like to display.     " + colour_reset);
 
                 // Use do-while and try-catch to ensure inputs have correct data type
                 do {
@@ -166,7 +186,7 @@ public class Main {
                     
                     } catch (Exception e) {
                         // If user did not enter integer, display error message and request new input
-                        System.out.print("Error, please enter an integer     ");
+                        System.out.print(colour_red + "Error, please enter an integer     " + colour_reset);
                         options.next();
                         errorInt2 = true;
 
@@ -176,6 +196,9 @@ public class Main {
             }
 
             if (songOption == 4) {
+                System.out.println(colour_green);
+                System.out.println("List of songs has been reset.");
+                System.out.println(colour_reset);
                 listOfSongs = new SongList();
             }
 
@@ -189,7 +212,14 @@ public class Main {
             }
 
         } while(end != true);
+
+        // System.out.println(colour_green);
+        System.out.println(colour_green + "\nThank you for your time\n" + colour_reset);
+        // System.out.println(colour_reset);
+
         // Closing scanner object to avoid irritating error message
         options.close();
+
+
     }
 }

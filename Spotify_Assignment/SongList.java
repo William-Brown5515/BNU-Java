@@ -22,17 +22,19 @@ public class SongList {
     public void createSong(String songName, String songArtists, Integer songPlays) {
         // Create the song and add it to the ArrayList
         songs.add(new Song(songName, songArtists, songPlays));
-        System.out.print("The added song's name is ");
+        System.out.print(Main.colour_green + "The added song's name is ");
         System.out.print(songName);
         System.out.print(", the song's artist(s) is/are ");
         System.out.print(songArtists);
         System.out.print(", and the current play count of the song is ");
-        System.out.println(songPlays);
+        System.out.println(songPlays + ".");
+        System.out.println(Main.colour_reset);
     }
     
     public void printSongs() {
         // Uses for loop to cycle through items in ArrayList
         if (songs.size() != 0) {
+            System.out.println(Main.colour_green);
             for (int i = 0; i < (songs.size()); i++) {
                 // Outputs all aspects of each song
                 System.out.print(songs.get(i).songTitle);
@@ -43,6 +45,7 @@ public class SongList {
                 System.out.print("     Song number...  ");
                 System.out.println(i + 1);
             }
+            System.out.println(Main.colour_reset);
         }
 
         else {
@@ -52,8 +55,9 @@ public class SongList {
 
     public void removeSong(Integer songToRemove) {
         // Outputs the song that has been removed for the user's input
-        System.out.print("The song you have removed is ");
+        System.out.print(Main.colour_yellow+ "The song you have removed is " + Main.colour_red);
         System.out.println(songs.get(songToRemove - 1).songTitle);
+        System.out.println(Main.colour_reset);
 
         // Uses temporary variable to remove song from songList
         Song temp = songs.get(songToRemove - 1);
@@ -64,6 +68,7 @@ public class SongList {
     public void songsAbove(Integer plays) {
         Integer numberSongs = 0;
         // Uses for loop to cycle through songs
+        System.out.println(Main.colour_green);
         for (Integer a = 0; a < (songs.size()); a++) {
             // Checks if play count of the song is above minimum that user entered
             if (songs.get(a).playCount > plays) {
@@ -76,6 +81,7 @@ public class SongList {
                 numberSongs ++;
             }
         }
+        System.out.println(Main.colour_reset);
 
         // Checks if there are no songs above the play count, if so displays a message
         if (numberSongs == 0) {
