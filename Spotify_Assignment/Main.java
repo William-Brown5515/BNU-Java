@@ -75,37 +75,42 @@ public class Main {
             // Series of if loops to complete methods as requested by user
             if (songOption == 0) {
 
-                // Series of outputs and inputs to retrive information needed to create song
-                System.out.print(colour_cyan + "\nWhat is the name of the song to add?     " + colour_reset);
-                options.nextLine();
-                String songName = options.nextLine();
-                System.out.print(colour_cyan + "Who is/are the artist(s)?     " + colour_reset);
-                String songArtists = options.nextLine();
+                if (listOfSongs.songs.size() >= 99) {
+                    System.out.println(colour_red + "\nApologies, however you have reached the maximum amount of songs.\n" + colour_reset);
+                }
+                else {
+                    // Series of outputs and inputs to retrive information needed to create song
+                    System.out.print(colour_cyan + "\nWhat is the name of the song to add?     " + colour_reset);
+                    options.nextLine();
+                    String songName = options.nextLine();
+                    System.out.print(colour_cyan + "Who is/are the artist(s)?     " + colour_reset);
+                    String songArtists = options.nextLine();
 
-                // Prepare for try-catch function by displaying messages and initialising variables
-                int songPlays = 0;
-                System.out.print(colour_cyan + "What is the current play count of the song?     " + colour_reset);
-                Boolean errorInt;
+                    // Prepare for try-catch function by displaying messages and initialising variables
+                    int songPlays = 0;
+                    System.out.print(colour_cyan + "What is the current play count of the song?     " + colour_reset);
+                    Boolean errorInt;
 
-                // Use a do/while loop and a try/catch functions to ensure an integer is entered
-                // This is similar to the try/catch used for the songOption input
-                do {
-                    try {
-                        errorInt = false;
-                        songPlays = options.nextInt();
-                        System.out.print(colour_reset);
+                    // Use a do/while loop and a try/catch functions to ensure an integer is entered
+                    // This is similar to the try/catch used for the songOption input
+                    do {
+                        try {
+                            errorInt = false;
+                            songPlays = options.nextInt();
+                            System.out.print(colour_reset);
 
-                    } catch (Exception e) {
-                        // Avoid user putting in a data type that isn't a variable
-                        System.out.print(colour_red + "Error, please enter an integer     " + colour_reset);
-                        errorInt = true;
-                        options.next();
-                    }
+                        } catch (Exception e) {
+                            // Avoid user putting in a data type that isn't a variable
+                            System.out.print(colour_red + "Error, please enter an integer     " + colour_reset);
+                            errorInt = true;
+                            options.next();
+                        }
 
-                } while (errorInt != false);
+                    } while (errorInt != false);
 
-                // Use the createSong method to create the song 
-                listOfSongs.createSong(songName, songArtists, songPlays);
+                    // Use the createSong method to create the song 
+                    listOfSongs.createSong(songName, songArtists, songPlays);
+                }
             }
 
             if (songOption == 1) {
