@@ -49,7 +49,7 @@ public class SongList {
         }
 
         else {
-            System.out.println("Unfortunately, there are currently no songs");
+            System.out.println(Main.colour_red + "\nUnfortunately, there are currently no songs\n" + Main.colour_reset);
         }
     }
 
@@ -81,12 +81,13 @@ public class SongList {
                 numberSongs ++;
             }
         }
-        System.out.println(Main.colour_reset);
 
         // Checks if there are no songs above the play count, if so displays a message
         if (numberSongs == 0) {
-            System.out.print("I'm afraid there are no songs with a play count of over ");
-            System.out.println(plays);
+            System.out.print(Main.colour_red + "I'm afraid there are no songs with a play count of over ");
+            System.out.println(plays + Main.colour_reset);
         }
+
+        System.out.println(Main.colour_reset);
     }
 }
