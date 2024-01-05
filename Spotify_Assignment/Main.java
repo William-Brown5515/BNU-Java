@@ -10,6 +10,7 @@ public class Main {
     public static final String colour_cyan = "\u001B[36m";
     public static final String colour_green = "\u001B[32m";
     public static final String colour_yellow = "\u001B[33m";
+    public static final String background_white = "\u001B[47m";
 
     // Create main method
     public static void main(String[] Args) {
@@ -61,13 +62,13 @@ public class Main {
                 } catch (InputMismatchException e) {
                     // If an integer isn't entered, show relevant error message, and ask for another input
                     errorOptions = true;
-                    System.out.print(colour_red + "Error, please enter an integer   " + colour_reset);
+                    System.out.print(colour_red + background_white + "Error, please enter an integer" + colour_reset + "     ");
                     options.next();
 
                 } catch (IndexOutOfBoundsException f) {
                     // Catch exception that was thrown as user selected integer that was not in the range, and output error
                     errorOptions = true;
-                    System.out.print(colour_red + "Error, please enter an integer between 0 and 4     " + colour_reset);
+                    System.out.print(colour_red + background_white + "Error, please enter an integer between 0 and 4" + colour_reset + "     ");
                 }
 
             } while (errorOptions != false);
@@ -76,7 +77,7 @@ public class Main {
             if (songOption == 0) {
 
                 if (listOfSongs.songs.size() >= 99) {
-                    System.out.println(colour_red + "\nApologies, however you have reached the maximum amount of songs.\n" + colour_reset);
+                    System.out.println(colour_red + "\n" + background_white + "Apologies, however you have reached the maximum amount of songs." + colour_reset + "\n");
                 }
                 else {
                     // Series of outputs and inputs to retrive information needed to create song
@@ -101,7 +102,7 @@ public class Main {
 
                         } catch (Exception e) {
                             // Avoid user putting in a data type that isn't a variable
-                            System.out.print(colour_red + "Error, please enter an integer     " + colour_reset);
+                            System.out.print(colour_red + background_white + "Error, please enter an integer" + colour_reset + "     ");
                             errorInt = true;
                             options.next();
                         }
@@ -117,7 +118,7 @@ public class Main {
 
                 // Check if list of songs is empty, if it is then don't remove song
                 if (listOfSongs.songs.size() == 0) {
-                    System.out.println(colour_red + "\nApologies, however there are no songs in the list.\n" + colour_reset);
+                    System.out.println(colour_red + "\n" + background_white + "Apologies, however there are no songs in the list.\n" + colour_reset);
                 }
 
                 else {
@@ -141,15 +142,15 @@ public class Main {
                             }
                         } catch (InputMismatchException e) {
                             // If user did not enter integer, show error message and try again
-                            System.out.print(colour_red + "Error, please enter an integer     " + colour_reset);
+                            System.out.print(colour_red + background_white + "Error, please enter an integer" + colour_reset + "     ");
                             errorRemove = true;
                             options.next();
 
                         } catch (IndexOutOfBoundsException f) {
                             // If index is out of list range, show error message and try again
-                            System.out.print(colour_red + "Error, please enter an integer between 0 and ");
+                            System.out.print(colour_red + background_white + "Error, please enter an integer between 0 and ");
                             System.out.print(listOfSongs.songs.size() - 1);
-                            System.out.print("     " + colour_reset);
+                            System.out.print(colour_reset + "     ");
                             errorRemove = true;
 
                         }
@@ -179,7 +180,7 @@ public class Main {
                     
                     } catch (Exception e) {
                         // If user did not enter integer, display error message and request new input
-                        System.out.print(colour_red + "Error, please enter an integer     " + colour_reset);
+                        System.out.print(colour_red + background_white + "Error, please enter an integer" + colour_reset + "     ");
                         options.next();
                         errorInt2 = true;
 
@@ -189,6 +190,7 @@ public class Main {
             }
 
             if (songOption == 4) {
+                // Overwrite the current songlist with a new one, thus resetting the songlist
                 System.out.println(colour_green + "\nList of songs has been reset.\n" + colour_reset);
                 listOfSongs = new SongList();
             }
@@ -196,10 +198,6 @@ public class Main {
             if (songOption == 5) {
                 // Change variable end to true as that is what the user has requested
                 end = true;
-            }
-
-            if (end != false) {
-                break;
             }
 
         } while(end != true);

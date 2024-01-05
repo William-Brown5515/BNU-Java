@@ -49,15 +49,16 @@ public class SongList {
         }
 
         else {
-            System.out.println(Main.colour_red + "\nUnfortunately, there are currently no songs.\n" + Main.colour_reset);
+            // If there are no songs, print out a message saying such
+            System.out.println(Main.colour_red + "\n" + Main.background_white + "Unfortunately, there are currently no songs." + Main.colour_reset + "\n");
         }
     }
 
     public void removeSong(Integer songToRemove) {
         // Outputs the song that has been removed for the user's input
-        System.out.print(Main.colour_yellow+ "The song you have removed is " + Main.colour_red);
-        System.out.println(songs.get(songToRemove - 1).songTitle);
-        System.out.println(Main.colour_reset);
+        System.out.print(Main.colour_yellow+ "The song you have removed is " + Main.colour_red + Main.background_white);
+        System.out.println((songs.get(songToRemove - 1).songTitle) + Main.colour_reset);
+        System.out.print("\n");
 
         // Uses temporary variable to remove song from songList
         Song temp = songs.get(songToRemove - 1);
@@ -84,7 +85,7 @@ public class SongList {
 
         // Checks if there are no songs above the play count, if so displays a message
         if (numberSongs == 0) {
-            System.out.print(Main.colour_red + "I'm afraid there are no songs with a play count of over ");
+            System.out.print(Main.colour_red + Main.background_white + "I'm afraid there are no songs with a play count of over ");
             System.out.println(plays + Main.colour_reset);
         }
 
