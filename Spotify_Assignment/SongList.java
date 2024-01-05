@@ -7,16 +7,16 @@ public class SongList {
 
     // Create a series of songs to begin the songList
     public SongList() {
-        songs.add(new Song("Blinding Lights", "The Weeknd",385100000));
-        songs.add(new Song("Shape of you", "Ed Sheeran", 365900000));
-        songs.add(new Song("Someone you Loved", "Lewis Capaldi", 301900000));
-        songs.add(new Song("Sunflower", "Post Malone & Swae Lee", 296400000));
-        songs.add(new Song("Dance Monkey", "Tones and I", 292000000));
-        songs.add(new Song("One Dance", "Drake, Wizkid & Kyla", 282300000));
-        songs.add(new Song("Stay", "The Kid Laroi & Justin Bieber", 279400000));
-        songs.add(new Song("Rockstar", "Post Malone & 21 Savage", 279300000));
-        songs.add(new Song("Starboy", "The Weeknd & Daft Punk", 275100000));
-        songs.add(new Song("As it was", "Harry Styles" , 274700000));
+        songs.add(new Song("I Think We're Alone Now", "Tiffany",216413459));
+        songs.add(new Song("Combine Harvester", "The Wurzels", 1870196));
+        songs.add(new Song("One For The Bristol City", "The Wurzels", 135336));
+        songs.add(new Song("Eternal Love", "JLS", 6689466));
+        songs.add(new Song("Gangnam Style", "PSY", 440139762));
+        songs.add(new Song("Magic", "Olympic Ayres", 20416299));
+        songs.add(new Song("Freed From Desire", "Gala Rizzatto", 409211614));
+        songs.add(new Song("Dreaming", "Smallpools", 103639173));
+        songs.add(new Song("Seven Nation Army", "The White Stripes", 1490794402));
+        songs.add(new Song("Dancing in the Moonlight", "Toploader" , 781869863));
     }
     
     public void createSong(String songName, String songArtists, Integer songPlays) {
@@ -49,7 +49,7 @@ public class SongList {
         }
 
         else {
-            System.out.println(Main.colour_red + "\nUnfortunately, there are currently no songs\n" + Main.colour_reset);
+            System.out.println(Main.colour_red + "\nUnfortunately, there are currently no songs.\n" + Main.colour_reset);
         }
     }
 
