@@ -203,7 +203,7 @@ public class Main {
         } while(end != true);
 
         System.out.println(colour_green + "\nThank you for your time\n" + colour_reset);
-
+        System.out.println("THIS IS A COMMIT TEST")
         // Closing scanner object to avoid irritating error message
         options.close();
     }
